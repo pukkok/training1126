@@ -19,7 +19,7 @@ class UrlChecker {
     }
     
     set url (value) {
-        if(typeof url === 'string') {
+        if(typeof value === 'string') {
             this.#url = value
         } else {
             console.error('문자열 형식이 아닙니다.')
