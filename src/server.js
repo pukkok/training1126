@@ -1,5 +1,5 @@
 import http from 'http'
-import FileReader from './fileReader/fileReader.js'
+import FileReader from './fileReader/FileReader.js'
 import {exec} from 'child_process'
 const server = http.createServer((req, res) => {
     if(req.method === 'GET') {
