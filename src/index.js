@@ -1,24 +1,22 @@
-// const first = () => setTimeout(() => {
-//     console.log('3초')
-//     second()
-// }, 3000)
-
-// const second = () => setTimeout(() => console.log('1초 뒤'), 1000)
-
-// first()
-
-let counter = 0
-
-const timer = () => setTimeout(() => {
-    if(counter < 5) {
-        // console.log('동작 테스트')
-        timer()
-        counter++
-        console.log(counter)
-    } else {
-        // clearTimeout(timer)
+window.addEventListener('DOMContentLoaded', () => {
+    const root = document.getElementById('root')
+    let opacityValue = 0
+    
+    root.innerHTML = '안녕 민석!'
+    root.style.opacity = opacityValue
+    
+    function timer () {
+        const dongjack = setTimeout(() => {
+            if(opacityValue < 1){
+                opacityValue = opacityValue + 0.1
+                root.style.opacity = opacityValue
+                console.log(opacityValue)
+                timer()
+            } else {
+                clearTimeout(dongjack)
+            }
+        }, 1000)
     }
 
-}, 1000)
-
-timer()
+    timer()
+})
