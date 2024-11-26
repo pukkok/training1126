@@ -11,14 +11,20 @@ class Extender {
         this.#extender = filePath.split('.').pop()
     }
 
-    get CotentType () {
-        switch(this.#extender) {
-            case 'html' : return 'text/html'
-            case 'css' : return 'text/css'
-            case 'json' : return 'application/json'
-            case 'js' : return 'application/javascript'
-            default : return 'text/html'
-        }
+    static #types = {
+        html: 'text/html',
+        css: 'text/css',
+        json: 'application/json',
+        js: 'application/javascript',
+        png: 'image/png',
+        jpg: 'image/jpeg',
+        jpeg: 'image/jpeg',
+        gif: 'image/gif',
+        svg: 'image/svg+xml',
+    }
+
+    get CotentType() {
+        return Extender.#types[this.#extender] || 'text/html'
     }
 }
 
