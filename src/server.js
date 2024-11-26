@@ -1,21 +1,16 @@
 import http from 'http'
-import Extender from './fileReader/Extender.js'
-
+import FileReader from './fileReader/fileReader.js'
+import {exec} from 'child_process'
 const server = http.createServer((req, res) => {
-
-
     if(req.method === 'GET') {
-        const extender = new Extender(req.url)
-        console.log(extender.CotentType)
-
-        if(req.url === '/') {
-
-            res.writeHead(200, {"content-type" : 'text/plain; charset=utf8'})
-            res.write('안녕하세요')
-            res.end()
-        }
+        const file = new FileReader(req.url, res)
+        file.read()
     }
-
 })
 
-server.listen(8080, () => console.log('http://localhost:8080'))
+server.listen(8080, () => {
+    // console.log('http://localhost:8080')
+    exec('start http://localhost:8080', () => {
+        console.log('서버 동작')
+    })
+})
