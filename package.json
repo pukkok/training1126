@@ -7,6 +7,9 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev" : "node src/index.js"
+    "dev": "node src/index.js"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8"
   }
 }
