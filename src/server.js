@@ -1,15 +1,14 @@
 import http from 'http'
-import extractContentType from './fileReader/extractContentType.js'
+import Extender from './fileReader/Extender.js'
 
 const server = http.createServer((req, res) => {
 
 
     if(req.method === 'GET') {
-        
+        const extender = new Extender(req.url)
+        console.log(extender.CotentType)
+
         if(req.url === '/') {
-            const tester = extractContentType('../public/index.html')
-            const testerTwo = extractContentType('../public/index.js')
-            console.log(tester, testerTwo)
 
             res.writeHead(200, {"content-type" : 'text/plain; charset=utf8'})
             res.write('안녕하세요')
