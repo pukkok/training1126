@@ -25,6 +25,10 @@ class UrlChecker {
             console.error('문자열 형식이 아닙니다.')
         }
     }
+
+    get path () {
+        return this.#url === '/' ? './public/index.html' : './public' + this.#url
+    }
 }
 
 export default UrlChecker
