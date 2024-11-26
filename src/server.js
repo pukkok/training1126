@@ -1,5 +1,5 @@
 import http from 'http'
-import UrlChecker from './fileReader/UrlChecker.js'
+import extractContentType from './fileReader/extractContentType.js'
 
 const server = http.createServer((req, res) => {
 
@@ -7,9 +7,9 @@ const server = http.createServer((req, res) => {
     if(req.method === 'GET') {
         
         if(req.url === '/') {
-            const url = new UrlChecker(req.url)
-            url.url = '123'
-            console.log(url.url)
+            const tester = extractContentType('../public/index.html')
+            const testerTwo = extractContentType('../public/index.js')
+            console.log(tester, testerTwo)
 
             res.writeHead(200, {"content-type" : 'text/plain; charset=utf8'})
             res.write('안녕하세요')
