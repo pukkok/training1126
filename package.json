@@ -4,5 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/pukkok/training1126.git",
   "author": "pukkok <krystalgggg@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev" : "node src/index.js"
+  }
 }
