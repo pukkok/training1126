@@ -2,7 +2,7 @@
 // url이 스트링이 아니면 에러를 발생시킨다.
 // get으로 url을 확인할 수 있다.
 // set으로 url을 변경할 수 있다.
-
+import path from 'path'
 
 class UrlChecker {
     #url
@@ -26,8 +26,9 @@ class UrlChecker {
         }
     }
 
-    get path () {
-        return this.#url === '/' ? './public/index.html' : './public' + this.#url
+    get path() {
+        const confirmedPath = path.normalize(this.#url === '/' ? '/index.html' : this.#url)
+        return path.join('./public', confirmedPath)
     }
 }
 
