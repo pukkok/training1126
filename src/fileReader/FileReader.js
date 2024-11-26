@@ -3,11 +3,24 @@ import UrlChecker from './UrlChecker.js'
 import Extender from './Extender.js'
 
 const fileReader = (path, res, contentType, errMsg="파일 읽기 실패") => {
-    fs.readFile(path, (err, readFile) => {
-        if(err) return console.error(errMsg)
-        res.writeHead(200, {"content-type" : contentType})
-        res.write(readFile)
-        res.end()
+    fs.access(path, fs.constants.F_OK, (err) => {
+        if (err) {
+            res.writeHead(404, { 'Content-Type': 'text/plain' })
+            res.end('404 Not Found')
+            return
+        }
+
+        fs.readFile(path, (err, readFile) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'text/plain' })
+                res.end('500 Internal Server Error')
+                console.error(errMsg)
+                return 
+            }
+            res.writeHead(200, { 'Content-Type': contentType })
+            res.write(readFile)
+            res.end()
+        })
     })
 }
 
