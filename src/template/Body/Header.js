@@ -2,11 +2,15 @@ const header = {
     source : 
     `
     <header>
-    {{item}}
+    <ul>
+    {{#each item}}
+    <li><a href=#{{this}}>{{this}}</a></li>
+    {{/each}}
+    </ul>
     </header>
     `,
     data : {
-        item : '헤더 데이터'
+        item : ['민지', '민석', '욱재']
     }
 }
 
