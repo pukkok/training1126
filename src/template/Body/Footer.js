@@ -2,11 +2,12 @@ const footer = {
     source : 
     `
     <footer>
+    copyright &copy
     {{item}}
     </footer>
     `,
     data : {
-        item : ` handlebars Master. Powered By Pukkok.`
+        item : `Handlebars Master. Powered By Pukkok.`
     }
 }
 
