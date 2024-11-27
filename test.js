@@ -1,33 +1,36 @@
 import Handlebars from "handlebars"
 
-class Head {
-    static source = 
-    `
-    <head>
+class TemplateMaker {
+    #source
+    #data
+
+    constructor (source, dataObj) {
+        this.#source = source
+        this.#data = dataObj
+    }
+
+    template () {
+        const template = Handlebars.compile(this.#source)
+        return template(this.#data)
+    }
+}
+
+const head = {
+    source : 
+    `<head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{title}}</title>
         <link rel="icon" href="data:,">
-    </head>
-    `
-    #title = { title : 'Document' }
-
-    get title () {
-        return this.#title
-    }
-
-    set title (value) {
-        this.#title.title = value
-    }
-
-    template () {
-        const template = Handlebars.compile(Head.source)
-        return template(this.#title)
+    </head>`,
+    data: {
+        title : `핸들바로 제작한 템플릿`
     }
 }
 
-const headTest = new Head()
-const a = headTest.template()
+const headPart = new TemplateMaker(head.source, head.data)
+let a = headPart.template()
 console.log(a)
 
-export default Head
+
+export default TemplateMaker
