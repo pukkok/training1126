@@ -10,7 +10,7 @@ const header = {
     </header>
     `,
     data : {
-        item : ['민지', '민석', '욱재']
+        item : ['김민지', '서민석', '공욱재']
     }
 }
 
