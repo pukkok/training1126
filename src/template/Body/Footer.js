@@ -6,7 +6,7 @@ const footer = {
     </footer>
     `,
     data : {
-        item : `&copy; handlebars Master. Powered By Pukkok.`
+        item : ` handlebars Master. Powered By Pukkok.`
     }
 }
 
