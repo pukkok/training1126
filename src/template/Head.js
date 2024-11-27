@@ -1,7 +1,5 @@
-import Handlebars from "handlebars"
-
-class Head {
-    static source = 
+const head = {
+    source : 
     `
     <head>
         <meta charset="UTF-8">
@@ -9,21 +7,10 @@ class Head {
         <title>{{title}}</title>
         <link rel="icon" href="data:,">
     </head>
-    `
-    #title = {title : 'Document'}
-
-    get title () {
-        return this.#title
-    }
-
-    set title (value) {
-        this.#title[title] = value
-    }
-
-    template () {
-        const template = Handlebars.compile(Head.source)
-        return template(this.#title)
+    `,
+    data: {
+        title : `핸들바로 제작한 템플릿`
     }
 }
 
-export default Head
+export default head
