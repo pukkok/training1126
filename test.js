@@ -10,14 +10,14 @@ class Head {
         <link rel="icon" href="data:,">
     </head>
     `
-    #title = {title : 'Document'}
+    #title = { title : 'Document' }
 
     get title () {
         return this.#title
     }
 
     set title (value) {
-        this.#title[title] = value
+        this.#title.title = value
     }
 
     template () {
@@ -25,5 +25,9 @@ class Head {
         return template(this.#title)
     }
 }
+
+const headTest = new Head()
+const a = headTest.template()
+console.log(a)
 
 export default Head
