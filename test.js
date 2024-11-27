@@ -17,20 +17,41 @@ class TemplateMaker {
 
 const head = {
     source : 
-    `<head>
+    `
+    <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{title}}</title>
         <link rel="icon" href="data:,">
-    </head>`,
+    </head>
+    `,
     data: {
         title : `핸들바로 제작한 템플릿`
     }
 }
 
 const headPart = new TemplateMaker(head.source, head.data)
-let a = headPart.template()
-console.log(a)
+const headResult = headPart.template()
+console.log(headResult)
+
+const HTML = {
+    source : 
+    `
+    <!DOCTYPE html>
+    <html lang="ko">
+    {{{head}}}
+    {{{body}}}
+    </html>
+    `,
+    data: {
+        head : headResult,
+        body : '안녕'
+    }
+}
+const HtmlPart = new TemplateMaker(HTML.source, HTML.data)
+let htmlResult = HtmlPart.template()
+console.log(htmlResult)
+
 
 
 export default TemplateMaker
