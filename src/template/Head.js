@@ -7,6 +7,7 @@ const head = {
         <title>{{title}}</title>
         <link rel="icon" href="data:,">
         <link rel="stylesheet" href="style.css">
+        <script src="index.js"></script>
     </head>
     `,
     data: {
