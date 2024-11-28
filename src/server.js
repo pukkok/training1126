@@ -18,6 +18,18 @@ const server = http.createServer((req, res) => {
             .then(data => {
                 res.writeHead(200, {"content-type" : 'application/json'})
                 res.end(JSON.stringify(data))
+            }).catch(err => {
+                res.writeHead(500, {"content-type" : 'text/plain'})
+                res.end('요청한 응답을 보낼 수 없습니다.')
+            }) 
+        }
+        
+        if(req.url === '/api/reset-data') {
+            fetch('http://localhost:8080/api/reset-data')
+            .then(res => res.json())
+            .then(data => {
+                res.writeHead(200, {"content-type" : 'application/json'})
+                res.end(JSON.stringify(data))
             })
         }
     }
